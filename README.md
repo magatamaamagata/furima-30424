@@ -9,11 +9,7 @@
 | first_name_kanji| string | null: false |
 | family_name_katakana| string | null: false |
 | first_name_katakana| string | null: false |
-| birth_year_id| date | null: false |
-| birth_month_id| date | null: false |
 | birthday_id| date | null: false |
-| customer| references | foreign_key: true |
-
 
 ### Association
 
@@ -24,11 +20,11 @@
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| item_name    | string | null: false |
+| name    | string | null: false |
 | description | text | null: false |
 | category_id| integer | null: false |
 | status_id| integer | null: false |
-| delivery_id| integer | null: false |
+| prefecture_id| integer | null: false |
 | shipment_fee_id| integer | null: false |
 | day_to_ship_id| integer | null: false |
 | price| integer | null: false |
@@ -37,7 +33,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :customer
+- has_one :customer
 
 ## customers テーブル
 
@@ -51,7 +47,7 @@
 
 - belongs_to :user
 - belongs_to :customer
-- has_one :addresses
+- has_one :address
 
 ## addresses テーブル
 
