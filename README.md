@@ -9,7 +9,7 @@
 | first_name_kanji| string | null: false |
 | family_name_katakana| string | null: false |
 | first_name_katakana| string | null: false |
-| birthday_id| date | null: false |
+| birthday| date | null: false |
 
 ### Association
 
@@ -46,7 +46,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :customer
+- belongs_to :item
 - has_one :address
 
 ## addresses テーブル
@@ -58,7 +58,7 @@
 | city | string | null: false |
 | address | string | null: false |
 | building | string | |
-| phone_number | integer | null: false |
+| phone_number | string | null: false |
 | customer | references | foreign_key: true |
 
 
