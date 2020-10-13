@@ -5,9 +5,14 @@
 | nickname     | string | null: false |
 | email    | string | null: false |
 | password | string | null: false |
-| name_kanji| string | null: false |
-| name_katakana| string | null: false |
-| birthday| date | null: false |
+| family_name_kanji| string | null: false |
+| first_name_kanji| string | null: false |
+| family_name_katakana| string | null: false |
+| first_name_katakana| string | null: false |
+| birth_year_id| string | null: false |
+| birth_month_id| string | null: false |
+| birthday_id| string | null: false |
+
 ### Association
 
 - has_many :items
@@ -17,16 +22,15 @@
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| image     |  |  |
-| name    | string | null: false |
+| item_name    | string | null: false |
 | description | text | null: false |
-| category| string | null: false |
-| status| string | null: false |
-| delivery| string | null: false |
-| shipment_fee| string | null: false |
-| day_to_ship| string | null: false |
+| category_id| integer | null: false |
+| status_id| integer | null: false |
+| delivery_id| integer | null: false |
+| shipment_fee_id| integer | null: false |
+| day_to_ship_id| integer | null: false |
 | price| integer | null: false |
-| user_id| references |  |
+| user| references | foreign_key: true |
 
 ### Association
 
@@ -37,10 +41,9 @@
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| card_number     | integer | null: false |
-| expiration date    | date | null: false |
-| security_code | integer | null: false |
-| user_id  | references | |
+| user | references | foreign_key: true |
+| item | references | foreign_key: true |
+
 
 ### Association
 
@@ -52,11 +55,11 @@
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| postcode     | integer | null: false |
-| prefecture    | string | null: false |
+| postcode     | string | null: false |
+| prefecture_id    | integer | null: false |
 | city | string | null: false |
-| a_lot_number | integer | null: false |
-| buiding | string | null: false |
+| address | string | null: false |
+| building | string | |
 | phone_number | integer | null: false |
 
 ### Association
