@@ -9,9 +9,11 @@
 | first_name_kanji| string | null: false |
 | family_name_katakana| string | null: false |
 | first_name_katakana| string | null: false |
-| birth_year_id| string | null: false |
-| birth_month_id| string | null: false |
-| birthday_id| string | null: false |
+| birth_year_id| date | null: false |
+| birth_month_id| date | null: false |
+| birthday_id| date | null: false |
+| customer| references | foreign_key: true |
+
 
 ### Association
 
@@ -61,6 +63,8 @@
 | address | string | null: false |
 | building | string | |
 | phone_number | integer | null: false |
+| customer | references | foreign_key: true |
+
 
 ### Association
 - belongs_to :customer
