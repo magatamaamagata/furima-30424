@@ -1,24 +1,66 @@
-# README
+# テーブル設計
+## usersテーブル
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| nickname     | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
+| family_name_kanji| string | null: false |
+| first_name_kanji| string | null: false |
+| family_name_katakana| string | null: false |
+| first_name_katakana| string | null: false |
+| birthday| date | null: false |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
 
-Things you may want to cover:
+- has_many :items
+- has_many :customers
 
-* Ruby version
+## items テーブル
 
-* System dependencies
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name    | string | null: false |
+| description | text | null: false |
+| category_id| integer | null: false |
+| status_id| integer | null: false |
+| prefecture_id| integer | null: false |
+| shipment_fee_id| integer | null: false |
+| day_to_ship_id| integer | null: false |
+| price| integer | null: false |
+| user| references | foreign_key: true |
 
-* Configuration
+### Association
 
-* Database creation
+- belongs_to :user
+- has_one :customer
 
-* Database initialization
+## customers テーブル
 
-* How to run the test suite
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| user | references | foreign_key: true |
+| item | references | foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :user
+- belongs_to :item
+- has_one :address
+
+## addresses テーブル
+
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| postcode     | string | null: false |
+| prefecture_id    | integer | null: false |
+| city | string | null: false |
+| address | string | null: false |
+| building | string | |
+| phone_number | string | null: false |
+| customer | references | foreign_key: true |
+
+
+### Association
+- belongs_to :customer
