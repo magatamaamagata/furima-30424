@@ -112,4 +112,20 @@ describe User do
       end
     end
   end
+
+  describe 'ユーザーログイン' do
+    context 'ログインがうまくいくとき' do
+      it 'email、passwordが存在すれば登録できる' do
+        expect(@user).to be_valid
+      end
+    end
+    context 'ログインがうまくいかない時' do
+      it 'email,passwordが空のとき' do
+        @user.email = ''
+        @user.password = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Eメールを入力してください', 'パスワードを入力してください', 'パスワードは6文字以上の英数字が使えます', 'パスワード（確認用）とパスワードの入力が一致しません')
+      end
+    end
+  end
 end
