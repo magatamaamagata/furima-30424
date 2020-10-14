@@ -68,6 +68,12 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワードは6文字以上で入力してください')
       end
+      it 'passwordが英数混合でないと登録できない' do
+        @user.password = 'abcde'
+        @user.password_confirmation = 'abcde'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('パスワードは6文字以上で入力してください')
+      end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''
         @user.valid?
