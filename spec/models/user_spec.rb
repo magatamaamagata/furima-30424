@@ -103,7 +103,7 @@ describe User do
         @user.family_name_katakana = 'mori'
         @user.first_name_katakana = 'mori'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name katakanaに全角文字を使用してください')
+        expect(@user.errors.full_messages).to include('Family name katakanaに全角カナを使用してください')
       end
       it 'birthdayが空では登録できない' do
         @user.birthday = nil
