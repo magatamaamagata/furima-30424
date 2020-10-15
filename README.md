@@ -1,13 +1,13 @@
 # テーブル設計
 ## usersテーブル
-| Column   | Type   | Options     |
+| Column | Type   | Options |
 | -------- | ------ | ----------- |
-| nickname     | string | null: false |
-| email    | string | null: false |
+| nickname | string | null: false |
+| email | string | null: false |
 | password | string | null: false |
 | family_name_kanji| string | null: false |
 | first_name_kanji| string | null: false |
-| family_name_katakana| string | null: false |
+| family_name_katakana　| string | null: false |
 | first_name_katakana| string | null: false |
 | birthday| date | null: false |
 
