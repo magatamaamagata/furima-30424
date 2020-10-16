@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_many :items
   with_options presence: true do
     with_options format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'に全角文字を使用してください' } do
       validates :family_name_kanji
@@ -17,5 +17,4 @@ class User < ApplicationRecord
     validates :birthday
   end
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-zA-Z\d]{6,50}+\z/, message: 'は6文字以上の英数字が使えます' }
-
 end
