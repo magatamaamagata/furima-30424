@@ -10,4 +10,4 @@ function calculate(){
   })
 
 }
-window.addEventListener('load', calculate);
+window.setInterval(calculate,1000);
