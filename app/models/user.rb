@@ -17,5 +17,4 @@ class User < ApplicationRecord
     validates :birthday
   end
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-zA-Z\d]{6,50}+\z/, message: 'は6文字以上の英数字が使えます' }
-
 end

@@ -43,7 +43,7 @@ describe Item do
       it '商品の説明が空では登録できない' do
         @item.description = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Descriptionを入力してください")
+        expect(@item.errors.full_messages).to include('Descriptionを入力してください')
       end
       it '商品の説明が1000文字以上だと登録できない' do
         @item.description = Faker::Lorem.sentence(word_count: 1001)
@@ -53,7 +53,7 @@ describe Item do
       it 'カテゴリーが非選択では登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Categoryは1以外の値にしてください")
+        expect(@item.errors.full_messages).to include('Categoryは1以外の値にしてください')
       end
       it '商品の状態が非選択では登録できない' do
         @item.status_id = 1
@@ -78,22 +78,22 @@ describe Item do
       it '販売価格が299円以下だと登録できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Priceは一覧にありません")
+        expect(@item.errors.full_messages).to include('Priceは一覧にありません')
       end
       it '販売価格が10000000円以上だと登録できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Priceは一覧にありません")
+        expect(@item.errors.full_messages).to include('Priceは一覧にありません')
       end
       it '販売価格が全角数字だと登録できない' do
-        @item.price = "４４４４４"
+        @item.price = '４４４４４'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Priceは一覧にありません", "Priceは数値で入力してください")
+        expect(@item.errors.full_messages).to include('Priceは一覧にありません', 'Priceは数値で入力してください')
       end
       it '販売価格が全角文字だと登録できない' do
-        @item.price = "百円"
+        @item.price = '百円'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Priceは一覧にありません", "Priceは数値で入力してください")
+        expect(@item.errors.full_messages).to include('Priceは一覧にありません', 'Priceは数値で入力してください')
       end
     end
   end
