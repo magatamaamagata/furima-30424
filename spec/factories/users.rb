@@ -10,6 +10,5 @@ FactoryBot.define do
     family_name_katakana   { gimei.last.katakana }
     first_name_katakana    { gimei.first.katakana }
     birthday { Faker::Date.in_date_period }
-
   end
 end
