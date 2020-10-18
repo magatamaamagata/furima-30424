@@ -33,9 +33,9 @@
 ### Association
 
 - belongs_to :user
-- has_one :customer
+- has_one :order
 
-## customers テーブル
+## orders テーブル
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
@@ -59,8 +59,8 @@
 | address | string | null: false |
 | building | string | |
 | phone_number | string | null: false |
-| customer | references | foreign_key: true |
+| order | references | foreign_key: true |
 
 
 ### Association
-- belongs_to :customer
+- belongs_to :order
