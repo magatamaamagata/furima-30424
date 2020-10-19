@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_10_18_082353) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_addresses_on_order_id"
   end
-
+  
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -93,4 +93,5 @@ ActiveRecord::Schema.define(version: 2020_10_18_082353) do
   add_foreign_key "items", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
+
 end
