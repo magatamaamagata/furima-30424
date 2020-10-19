@@ -9,7 +9,7 @@ class OrderCredits
     validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフンを含めてください"}
     validates :city
     validates :address
-    validates :phone_number,length: { maximum: 11 }
+    validates :phone_number,length: { maximum: 11 }, format: {with: /\A\d{,11}\z/, message: "ハイフンを消してください"}
     validates :token
   end
 
