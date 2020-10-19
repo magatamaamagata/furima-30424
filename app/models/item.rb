@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipment_fee
   belongs_to_active_hash :day_to_ship
   belongs_to :user
+  has_one :order
   has_one_attached :image
 
   with_options presence: true do
@@ -15,13 +16,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  validates :category, presence: { message: 'を選択してください' }
-  validates :status, presence: { message: 'を選択してください' }
-  validates :prefecture, presence: { message: 'を選択してください' }
-  validates :shipment_fee, presence: { message: 'を選択してください' }
-  validates :day_to_ship, presence: { message: 'を選択してください' }
-
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1, message: 'を選択してください' } do
     validates :category_id
     validates :status_id
     validates :prefecture_id
