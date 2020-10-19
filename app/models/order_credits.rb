@@ -9,6 +9,8 @@ class OrderCredits
     validates :address
     validates :phone_number, length: { maximum: 11 }, format: { with: /\A\d{,11}\z/, message: 'ハイフンを消してください' }
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
   validates :prefecture_id, numericality: { other_than: 1 }

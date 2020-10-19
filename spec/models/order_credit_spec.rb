@@ -10,6 +10,10 @@ RSpec.describe OrderCredits, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@order_credits).to be_valid
       end
+      it 'buildingは空でも保存できること' do
+        @order_credits.building = nil
+        expect(@order_credits).to be_valid
+      end
     end
 
     context '購入に失敗する時' do
@@ -48,10 +52,6 @@ RSpec.describe OrderCredits, type: :model do
         @order_credits.valid?
         expect(@order_credits.errors.full_messages).to include('Addressを入力してください')
       end
-      it 'buildingは空でも保存できること' do
-        @order_credits.building = nil
-        expect(@order_credits).to be_valid
-      end
       it 'phone_numberは空だと保存できないこと' do
         @order_credits.phone_number = nil
         @order_credits.valid?
@@ -71,6 +71,16 @@ RSpec.describe OrderCredits, type: :model do
         @order_credits.token = nil
         @order_credits.valid?
         expect(@order_credits.errors.full_messages).to include('Tokenを入力してください')
+      end
+      it 'user_idが空だと保存できないこと' do
+        @order_credits.user_id = nil
+        @order_credits.valid?
+        expect(@order_credits.errors.full_messages).to include('Userを入力してください')
+      end
+      it 'item_idが空だと保存できないこと' do
+        @order_credits.item_id = nil
+        @order_credits.valid?
+        expect(@order_credits.errors.full_messages).to include('Itemを入力してください')
       end
     end
   end
