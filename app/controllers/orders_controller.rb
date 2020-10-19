@@ -7,13 +7,13 @@ class OrdersController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @order_credit = OrderCredits.new(order_params)
-    if @order_credit.valid?
-      pay_item
-      @order_credit.save
-      redirect_to root_path
-    else
-      render action: :index
-    end
+      if @order_credit.valid?
+        pay_item
+        @order_credit.save
+        redirect_to root_path
+      else
+        render action: :index
+      end
   end
 
   private

@@ -130,11 +130,11 @@
           <%= link_to item_path(item) do %>
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" %>
-            <%# <% if user.order.id %> %>
-              <div class='sold-out'>
-                <span>Sold Out!!</span>
-              </div>
-            <%# <% end %>  %>
+              <% if item.order %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end  %>
 
           </div>
           <div class='item-info'>
