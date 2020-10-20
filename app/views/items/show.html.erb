@@ -26,9 +26,9 @@
     </div>
 
     <% if user_signed_in? && current_user.id == @item.user.id %>
-      <%= link_to '商品の編集', "#", method: :get, class: "item-red-btn" %>
+      <%= link_to '商品の編集', edit_item_path(params[:id]), method: :get, class: "item-red-btn" %>
       <p class='or-text'>or</p>
-      <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
+      <%# <%= link_to '削除', item_path(params[:item_id],params[:id]), method: :delete, class:'item-destroy' あとで追加%> %>
     <%else %>    
       <%unless @item.order %>
         <%= link_to '購入画面に進む', item_orders_path(params[:id]) ,class:"item-red-btn"%>
