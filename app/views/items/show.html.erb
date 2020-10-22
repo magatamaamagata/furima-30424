@@ -35,7 +35,7 @@
       <% end %>
     <% end %>
 
-    <% if user_signed_in? && current_user.id == @item.user.id %>
+    <% if user_signed_in? %>
     <div class="item-explain-box">
       <span><%= @item.description %></span>
     </div>
