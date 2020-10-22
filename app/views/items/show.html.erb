@@ -37,7 +37,7 @@
 
     <% if user_signed_in? && current_user.id == @item.user.id %>
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span><%= @item.description %></span>
     </div>
     <table class="detail-table">
       <tbody>
